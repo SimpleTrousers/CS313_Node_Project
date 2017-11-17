@@ -1,0 +1,23 @@
+body {
+   background-color: #d9d9d9;
+   font-family: 'Open Sans';
+   text-align: center;
+}
+
+.question {
+   background-color: #4484ce;
+   color: white;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+input[type="radio"] {
+   background-color: white;
+   padding: 5px;
+   visibility: hidden;
+   
+}
+
+input[type="radio"]:checked {
+   color:red;
+}
