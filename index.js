@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT || 5000
+// const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 22
 var mysql = require('mysql');
 
 express()
@@ -8,16 +9,18 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/stumper'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, '157.201.228.126');
+  console.log('Server running at http://157.201.228.126:22/');
+  // .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 // Configure server, try to connect to database on database port, not server
-var con = mysql.createConnection({
-  host: "157.201.228.126",
-  user: "stumperadmin",
-  password: "cit380game"
-});
+// var con = mysql.createConnection({
+//   host: "157.201.228.126",
+//   user: "stumperadmin",
+//   password: "cit380game"
+// });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
