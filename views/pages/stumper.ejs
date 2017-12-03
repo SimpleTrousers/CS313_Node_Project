@@ -14,3 +14,16 @@ con.connect(function(err) {
 if (err) throw err;
 console.log("Connected!");
 }); -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/answerHead.ejs %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <form action="/Answer">
+        <input type="submit" value="Answer Page!">
+    </form>
+</body>
+</html>
