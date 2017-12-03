@@ -6,7 +6,8 @@ body {
 
  .field {
     background-color: white;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     /* margin-top: 10px; */
     position: absolute;
     margin: auto;
