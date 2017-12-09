@@ -38,26 +38,25 @@
             </form>
          </div>
             <h1 class="container-center steel">Choose a question</h1>
-            <div class="container-center steel">
+            <div class="containersteel">
                <table id="table" >
                    <thead>
-                       <tr>  
+                       <tr>
                            <th>Question</th>
                        </tr>
                    </thead>
                     <tbody>
-                    <% data.forEach(function (question) { %>
+                    <% data.forEach(function (question) {
+                       if(question.question != ""){%>
                        <tr>
                            <td><%= question.question %></td>
                        </tr>
-                    <% }) %>
+                    <% }}) %>
                     </tbody>
                </table>
             </div>
 
       </div>
-
-
    </div>
 </body>
 </html>
