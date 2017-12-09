@@ -1,0 +1,4 @@
+[{"question": "What are Pineapples", "answers":{"1":"This is one answer", "2": "This is another answer", "3": "This is a potential answer", "4": "This could be your final answer"}, "author" : "James Jones"},
+ {"question": "What are Ceramics", "answers": {"1":"This is one answer", "2": "This is another answer", "3": "This is a potential answer", "4": "This could be your final answer"}, "author" : "Jacob Brown"},
+ {"question": "What is Concrete","answers": {"1":"This is one answer", "2": "This is another answer", "3": "This is a potential answer", "4": "This could be your final answer"}, "author" : "Jane Doe"},
+ {"question": "What is slate", "answers": {"1":"This is one answer", "2": "This is another answer", "3": "This is a potential answer", "4": "This could be your final answer"}, "author" : "Emily Johnson"}]
