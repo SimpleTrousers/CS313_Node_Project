@@ -54,7 +54,7 @@ function loadQuestions(req, res) {
   con.query("select * from Questions", function(err, results) {
     if (err) throw err;
     else {
-      res.render('pages/stumper', {'data': results});
+      res.render('pages/stumper', {data: results});
     }
   });
 }
