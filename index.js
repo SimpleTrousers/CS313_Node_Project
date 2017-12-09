@@ -24,7 +24,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/login'))
-  .get('/Stumper', (req, res) => res.render('pages/stumper'))
+  .get('/Stumper', (req, res) => loadQuestions(req, res))
   .get('/createQuestion', (req, res) => createQuestion(req, res))
   .get('/Answer', (req, res) => res.render('pages/answer'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
@@ -56,8 +56,8 @@ function loadQuestions(req, res) {
   con.query("select * from Questions", function(err, results) {
     if (err) throw err;
     else {
-      obj = {data: results};
-      res.render('pages/stumper', obj);
+      object = {data: results};
+      res.render('pages/stumper', object);
     }
   });
 }
