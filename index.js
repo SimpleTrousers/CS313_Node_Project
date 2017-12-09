@@ -43,16 +43,21 @@ function createQuestion(req, res) {
     if (err) throw err;
   });
 
-  con.query(sql, [values], function(err, result) {
-    if (err) throw err;
-    
-    con.query("select * from Questions", function(err, rows, fields) {
-      if (err) throw err;
-      else res.render('pages/stumper', rows);
-    });
-  });
+  // con.query(sql, [values], function(err, result) {
+  //   if (err) throw err;
+  // });
+
+  loadQuestions(req, res);
 };
 
 function loadQuestions(req, res) {
+  var object = {};
 
+  con.query("select * from Questions", function(err, results) {
+    if (err) throw err;
+    else {
+      obj = {data: results};
+      res.render('pages/stumper', obj);
+    }
+  });
 }
