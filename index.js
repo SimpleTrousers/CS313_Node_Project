@@ -1,3 +1,5 @@
+// import { port } from '_debugger';
+
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 80
@@ -7,7 +9,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "157.201.228.126",
   user: "root",
-  password: "Stumper.126"
+  password: "Stumper.126",
   port: "3506"
   });
 
