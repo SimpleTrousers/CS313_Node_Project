@@ -2,6 +2,19 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 80
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "157.201.228.126",
+  user: "root",
+  password: "Stumper.126"
+  });
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  });
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
