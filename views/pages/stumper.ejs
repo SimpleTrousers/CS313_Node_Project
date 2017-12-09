@@ -39,7 +39,24 @@
          </div>
             <h1 class="container-center steel">Choose a question</h1>
             <div class="container-center steel">
-               
+               <table id="table" >
+                   <thead>
+                       <tr>  
+                           <th>Question</th>
+                           <th>Answer 1</th>
+                           <th>Answer 2</th>
+                       </tr>
+                   </thead>
+                    <tbody>
+                    <% data.forEach(function (question) { %>
+                       <tr>
+                           <td><%= question.question %></td>
+                           <td><%= question.answer1 %></td>
+                           <td><%= question.answer2 %></td>
+                       </tr>
+                    <% }) %>
+                    </tbody>
+               </table>
             </div>
 
       </div>
@@ -48,22 +65,3 @@
    </div>
 </body>
 </html>
-
-<table id="table" >  
-    <thead>  
-        <tr>  
-            <th>Question</th>  
-            <th>Answer 1</th> 
-            <th>Answer 2</th>  
-        </tr>  
-    </thead>  
-     <tbody>  
-     <% data.forEach(function (question) { %>
-        <tr>  
-            <td><%= question.question %></td>  
-            <td><%= question.answer1 %></td>
-            <td><%= question.answer2 %></td>
-        </tr>                                   
-     <% }) %>
-     </tbody>
-</table>   

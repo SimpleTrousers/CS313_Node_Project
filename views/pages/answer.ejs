@@ -6,12 +6,24 @@
     </head>
     <body>
         <div>
-            <p class="question">Why?</p>
-
-            <div class="answer">TEST1</div>
-            <div class="answer">TEST2</div>
-            <div class="answer">TEST3</div>
-            <div class="answer">TEST4</div>
+           <table id="table" >
+               <thead>
+                   <tr>
+                       <th>Question</th>
+                       <th>Answer 1</th>
+                       <th>Answer 2</th>
+                   </tr>
+               </thead>
+                <tbody>
+                <% data.forEach(function (question) { %>
+                   <tr>
+                       <td><%= question.question %></td>
+                       <td><%= question.answer1 %></td>
+                       <td><%= question.answer2 %></td>
+                   </tr>
+                <% }) %>
+                </tbody>
+           </table>
         </div>
 
         <form action="/">
