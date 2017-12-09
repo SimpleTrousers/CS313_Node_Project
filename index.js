@@ -51,13 +51,10 @@ function createQuestion(req, res) {
 };
 
 function loadQuestions(req, res) {
-  var object = {};
-
   con.query("select * from Questions", function(err, results) {
     if (err) throw err;
     else {
-      object = {data: results};
-      res.render('pages/stumper', object);
+      res.render('pages/stumper', {'data': results});
     }
   });
 }
