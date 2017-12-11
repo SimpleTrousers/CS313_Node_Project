@@ -26,6 +26,7 @@ express()
   .get('/', (req, res) => res.render('pages/login'))
   .get('/Stumper', (req, res) => loadQuestions(req, res))
   .get('/createQuestion', (req, res) => createQuestion(req, res))
+  .get('/Question', (req, res) => Question(req, res))
   .get('/Answer', (req, res) => res.render('pages/answer'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
@@ -43,12 +44,19 @@ function createQuestion(req, res) {
     if (err) throw err;
   });
 
-  // con.query(sql, [values], function(err, result) {
-  //   if (err) throw err;
-  // });
-
   loadQuestions(req, res);
 };
+
+function Question(req, res) {
+  var requestURL = url.parse(req.url, true);
+
+  if (requestURL.query.see == "View+Question") {
+
+  }
+  // else if (requestURL.query.delete == "Delete+Question") {
+
+  // }
+}
 
 function loadQuestions(req, res) {
   con.query("select * from Questions", function(err, results) {
