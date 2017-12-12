@@ -51,14 +51,14 @@ function createQuestion(req, res) {
   var auth = requestURL.query.author.toString();
   if(requestURL.query.answer3.toString() == "none")
   {
-     a3 = undefined;
+     a3 = NULL;
   }else
   {
     a3 = requestURL.query.answer3.toString();
   }
   if(requestURL.query.answer4.toString() == "none")
   {
-     a4 = undefined;
+     a4 = NULL;
   }else
   {
     a4 = requestURL.query.answer3.toString();
