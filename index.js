@@ -79,14 +79,9 @@ function createQuestion(req, res) {
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
-  // console.log(requestURL.query.id);
+  var sql = "select * from Questions where id = " + requestURL.query.id;
 
-  var id = requestURL.query.id.toString();
-
-  var sql = "select * from Questions where id = ??";
-  var value = id;
-
-  con.query(mysql.format(sql, value), function(err, results, tableInfo) {
+  con.query(sql, function(err, results, tableInfo) {
     if (err) throw err;
     else {
       res.render('pages/answer', {data: results});
