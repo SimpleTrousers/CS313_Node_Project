@@ -15,9 +15,9 @@
                    </tr>
                </thead>
                 <tbody>
-                <% data.forEach(function (question) { 
+                <% data.forEach(function (question) {
                     var answers = [question.answer1, question.answer2];
-                    answers = shuffle(answers); %>
+                    answers.sort(function(a, b){return 0.5 - Math.random()}); %>
                    <tr>
                        <td><%= question.question %></td>
                        <td><%= answers[0] %></td>
