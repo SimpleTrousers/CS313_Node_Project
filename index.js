@@ -46,9 +46,27 @@ function createQuestion(req, res) {
   var q = requestURL.query.question.toString();
   var a1 = requestURL.query.answer1.toString();
   var a2 = requestURL.query.answer2.toString();
+  var a3;
+  var a4;
+  var auth = requestURL.query.author.toString();
+  if(requestURL.query.answer3.toString() == "none")
+  {
+     a3 = undefined;
+  }else
+  {
+    a3 = requestURL.query.answer3.toString();
+  }
+  if(requestURL.query.answer4.toString() == "none")
+  {
+     a4 = undefined;
+  }else
+  {
+    a4 = requestURL.query.answer3.toString();
+  }
 
-  var sql = "insert into ?? (??,??,??) values (?,?,?)";
-  var values = ['Questions', 'question', 'answer1', 'answer2', q, a1, a2];
+
+  var sql = "insert into ?? (??,??,??,??,??,??) values (?,?,?,?,?,?)";
+  var values = ['Questions', 'question', 'answer1', 'answer2', q, a1, a2, a3, a4, auth];
 
   con.query(mysql.format(sql, values), function(err, res, tableInfo) {
     if (err) throw err;
