@@ -95,7 +95,7 @@ function Question(req, res) {
   con.query(sql, function(err, results, tableInfo) {
     if (err) throw err;
     else {
-      data = shuffle(data);
+      results = shuffle(results);
       res.render('pages/answer', {data: results});
     }
   });
