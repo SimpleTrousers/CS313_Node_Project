@@ -39,23 +39,34 @@
          </div>
             <h1 class="container-center steel">Choose a question</h1>
             <div class="containersteel">
-               <table id="table" >
-                   <thead>
-                       <tr>
-                           <th>Question</th>
-                       </tr>
-                   </thead>
-                    <tbody>
-                    <% data.forEach(function (question) {
-                       if(question.question != ""){%>
-                       <tr>
-                           <td><%= question.question %></td>
-                       </tr>
-                    <% }}) %>
-                    </tbody>
-               </table>
+                <form action="/Question">
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.forEach(function (question) {
+                            if(question.question != ""){%>
+                            <tr>
+                                <!-- In case we want to delete or see questions ever --> 
+                                <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
+                                <td><%= question.question %></td>
+                                <input type="hidden" name="id" value="<%= question.id %>">
+                            </tr>
+                            <% }}) %>
+                            <tr>
+                                <td>
+                                    <!-- In case we want to delete or see questions ever -->
+                                    <!-- <input type="submit" name="see" value="View Question"> -->
+                                    <!-- <input type="submit" name="delete" value="Delete Question"> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
             </div>
-
       </div>
    </div>
 </body>

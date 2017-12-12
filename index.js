@@ -1,3 +1,13 @@
+// A Node.js, express, ejs, mysql app to implement the Stumper Game
+//
+//
+// "forever" module is installed on server
+// To Start Node.js server: forever start index.js
+// To List running processes: forever list
+// To Stop Node.js Server (if you know the id): forever stop [id]
+// To Stop Node.js Server (if you don't know the id): uid=$(forever list | grep index.js | cut -c24-27) && forever stop $uid
+// To Restart a running server: forever restart [id]
+
 const express = require('express')
 const path = require('path')
 var url = require('url')
@@ -26,6 +36,7 @@ express()
   .get('/', (req, res) => res.render('pages/login'))
   .get('/Stumper', (req, res) => loadQuestions(req, res))
   .get('/createQuestion', (req, res) => createQuestion(req, res))
+  .get('/Question', (req, res) => Question(req, res))
   .get('/Answer', (req, res) => res.render('pages/answer'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
@@ -43,12 +54,19 @@ function createQuestion(req, res) {
     if (err) throw err;
   });
 
-  // con.query(sql, [values], function(err, result) {
-  //   if (err) throw err;
-  // });
-
   loadQuestions(req, res);
 };
+
+function Question(req, res) {
+  var requestURL = url.parse(req.url, true);
+
+  if (requestURL.query.see == "View+Question") {
+
+  }
+  // else if (requestURL.query.delete == "Delete+Question") {
+
+  // }
+}
 
 function loadQuestions(req, res) {
   con.query("select * from Questions", function(err, results) {
