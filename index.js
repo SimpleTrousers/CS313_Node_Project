@@ -78,11 +78,9 @@ function createQuestion(req, res) {
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
-  console.log(requestURL.query.id);
-
-  // if (requestURL.query.see == "View+Question") {
-
-  // }
+  if (requestURL.query.see == "View+Question") {
+    console.log(requestURL.query.id);
+  }
   // else if (requestURL.query.delete == "Delete+Question") {
 
   // }

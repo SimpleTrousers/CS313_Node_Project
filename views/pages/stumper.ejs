@@ -56,17 +56,17 @@
                             <tr onclick="javascript:document.forms['questForm'].submit();">
                                 <!-- In case we want to delete or see questions ever -->
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
+                                <input type="radio" name="id" value="<%= question.id %>">
                                 <td class="td-button"><%= question.question %></td>
-                                <input type="hidden" name="id" value="<%= question.id %>">
                             </tr>
                             <% }}) %>
-                            <!-- <tr> -->
-                                <!-- <td> -->
+                            <tr>
+                                <td>
                                     <!-- In case we want to delete or see questions ever -->
-                                    <!-- <input type="submit" name="see" value="View Question"> -->
+                                    <input type="submit" name="see" value="View Question">
                                     <!-- <input type="submit" name="delete" value="Delete Question"> -->
-                                <!-- </td> -->
-                            <!-- </tr> -->
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </form>
