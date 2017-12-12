@@ -15,11 +15,13 @@
                    </tr>
                </thead>
                 <tbody>
-                <% data.forEach(function (question) { %>
+                <% data.forEach(function (question) { 
+                    var answers = [question.answer1, question.answer2];
+                    answers = shuffle(answers); %>
                    <tr>
                        <td><%= question.question %></td>
-                       <td><%= question.answer1 %></td>
-                       <td><%= question.answer2 %></td>
+                       <td><%= answers[0] %></td>
+                       <td><%= answers[1] %></td>
                    </tr>
                 <% }) %>
                 </tbody>
@@ -31,3 +33,14 @@
         </form>
     </body>
 </html>
+
+<% function shuffle(array) {
+    var curIndex = array.length, tempval, randIndex;
+    while(0 !== curIndex){
+       curIndex -= 1;
+       randIndex = Math.floor(Math.random() * curIndex);
+       tempval = array[curIndex];
+       array[randIndex] = tempval;
+    }
+    return array;
+ } %>

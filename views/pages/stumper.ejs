@@ -50,7 +50,7 @@
                         </thead>
                         <tbody>
                             <% data.forEach(function (question) {
-                            if(question.question != ""){%>
+                            if(question.question != ""){ %>
                             <tr onclick="javascript:document.getElementById('<%= question.id %>').checked = true;;">
                                 <!-- In case we want to delete or see questions ever -->
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->

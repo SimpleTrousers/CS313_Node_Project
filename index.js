@@ -13,6 +13,7 @@ const express = require('express')
 const path = require('path')
 var url = require('url')
 var util = require('util')
+var math = require('mathjs')
 const PORT = process.env.PORT || 80
 
 var mysql = require('mysql');
@@ -76,17 +77,6 @@ function createQuestion(req, res) {
   loadQuestions(req, res);
 };
 
-function shuffle(array) {
-   var curIndex = array.length, tempval, randIndex;
-   while(0 !== curIndex){
-      curIndex -= 1;
-      randIndex = math.floor(math.random() * curIndex);
-      tempval = array[curIndex];
-      array[randIndex] = tempval;
-   }
-   return array;
-}
-
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
@@ -95,7 +85,6 @@ function Question(req, res) {
   con.query(sql, function(err, results, tableInfo) {
     if (err) throw err;
     else {
-      results = shuffle(results);
       res.render('pages/answer', {data: results});
     }
   });
