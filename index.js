@@ -75,6 +75,16 @@ function createQuestion(req, res) {
 
   loadQuestions(req, res);
 };
+function shuffle(array) {
+   var curIndex = array.length, tempval, randIndex;
+   while(0 !== curIndex){
+      curIndex -= 1;
+      randIndex = math.floor(math.random() * curIndex);
+      tempval = array[curIndex];
+      array[randIndex] = tempval;
+   }
+   return array;
+}
 
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
