@@ -80,7 +80,7 @@ function createQuestion(req, res) {
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
-  var sql = "select answer1, answer2 from Questions where id = " + requestURL.query.id;
+  var sql = "select * from Questions where id = " + requestURL.query.id;
 
   con.query(sql, function(err, results, tableInfo) {
     if (err) throw err;
