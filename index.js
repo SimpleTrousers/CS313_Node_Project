@@ -1,5 +1,3 @@
-// import { request } from 'https';
-
 // A Node.js, express, ejs, mysql app to implement the Stumper Game
 //
 //
