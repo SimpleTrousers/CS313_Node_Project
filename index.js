@@ -66,7 +66,7 @@ function createQuestion(req, res) {
 
 
   var sql = "insert into ?? (??,??,??,??,??,??) values (?,?,?,?,?,?)";
-  var values = ['Questions', 'question', 'answer1', 'answer2', q, a1, a2, a3, a4, auth];
+  var values = ['Questions', 'question', 'answer1', 'answer2','answer3', 'answer4', 'author', q, a1, a2, a3, a4, auth];
 
   con.query(mysql.format(sql, values), function(err, res, tableInfo) {
     if (err) throw err;
