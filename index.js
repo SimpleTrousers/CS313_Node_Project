@@ -1,3 +1,5 @@
+// import { request } from 'https';
+
 // A Node.js, express, ejs, mysql app to implement the Stumper Game
 //
 //
@@ -7,6 +9,7 @@
 // To Stop Node.js Server (if you know the id): forever stop [id]
 // To Stop Node.js Server (if you don't know the id): uid=$(forever list | grep index.js | cut -c24-27) && forever stop $uid
 // To Restart a running server: forever restart [id]
+// To Restart without knowing ID: uid=$(forever list | grep index.js | cut -c24-27) && forever restart $uid
 
 const express = require('express')
 const path = require('path')
@@ -78,9 +81,23 @@ function createQuestion(req, res) {
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
-  if (requestURL.query.see == "View+Question") {
-    console.log(requestURL.query.id);
-  }
+  // console.log(requestURL.query.id);
+
+  var id = requestURL.query.id.toString();
+
+  var sql = "select * from Questions where id = ??";
+  var value = id;
+
+  con.query(mysql.format(sql, value), function(err, results, tableInfo) {
+    if (err) throw err;
+    else {
+      res.render('pages/answer', {data: results});
+    }
+  });
+
+  // if (requestURL.query.see == "View%20Question") {
+  //   console.log(requestURL.query.id);
+  // }
   // else if (requestURL.query.delete == "Delete+Question") {
 
   // }
