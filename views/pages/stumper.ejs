@@ -50,9 +50,9 @@
                             <% data.forEach(function (question) {
                             if(question.question != ""){%>
                             <tr>
-                                <!-- In case we want to delete or see questions ever --> 
+                                <!-- In case we want to delete or see questions ever -->
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
-                                <td><%= question.question %></td>
+                                <td class="td-button"><%= question.question %></td>
                                 <input type="hidden" name="id" value="<%= question.id %>">
                             </tr>
                             <% }}) %>

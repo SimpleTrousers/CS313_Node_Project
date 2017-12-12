@@ -47,6 +47,10 @@ body{
    font-size: 110%;
 }
 
+.td-button{
+   background-color: rgba(70, 111, 154, 0.47);
+
+}
 p.heading{
    font-size: 75%;
    font-style: italic;
@@ -76,8 +80,9 @@ p.heading-left-small{
 }
 
 table{
+   background-color: rgba(70, 111, 154, 0.47);
    border-style: groove;
-   border-color: rgba(20, 0, 255, 0.83);
+   border-color: rgba(70, 111, 154, 0.87);
    background-color: inherit;
    text-align: center;
    height: auto;
@@ -86,12 +91,12 @@ table{
 }
 
 tr{
-   border-color: rgba(20, 0, 255, 0.83);
+   border-color: rgba(70, 111, 154, 0.87);
    border-style: solid;
    border-spacing:inherit;
 }
 td{
-   border-color: rgba(20, 0, 255, 0.83);
+   border-color: rgba(70, 111, 154, 0.87);
    border-style: solid;
    border-spacing:inherit;
 }
