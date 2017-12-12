@@ -39,7 +39,7 @@
          </div>
             <h1 class="container-center steel">Choose a question</h1>
             <div class="containersteel">
-                <form action="/Question">
+                <form id="questForm" action="/Question">
                     <table id="table">
                         <thead>
                             <tr>
@@ -49,20 +49,20 @@
                         <tbody>
                             <% data.forEach(function (question) {
                             if(question.question != ""){%>
-                            <tr>
+                            <tr onclick="javascript:document.forms['questForm'].submit();">
                                 <!-- In case we want to delete or see questions ever -->
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
                                 <td class="td-button"><%= question.question %></td>
                                 <input type="hidden" name="id" value="<%= question.id %>">
                             </tr>
                             <% }}) %>
-                            <tr>
-                                <td>
+                            <!-- <tr> -->
+                                <!-- <td> -->
                                     <!-- In case we want to delete or see questions ever -->
                                     <!-- <input type="submit" name="see" value="View Question"> -->
                                     <!-- <input type="submit" name="delete" value="Delete Question"> -->
-                                </td>
-                            </tr>
+                                <!-- </td> -->
+                            <!-- </tr> -->
                         </tbody>
                     </table>
                 </form>

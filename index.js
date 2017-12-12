@@ -60,9 +60,11 @@ function createQuestion(req, res) {
 function Question(req, res) {
   var requestURL = url.parse(req.url, true);
 
-  if (requestURL.query.see == "View+Question") {
+  console.log(requestURL.query.id);
 
-  }
+  // if (requestURL.query.see == "View+Question") {
+
+  // }
   // else if (requestURL.query.delete == "Delete+Question") {
 
   // }
