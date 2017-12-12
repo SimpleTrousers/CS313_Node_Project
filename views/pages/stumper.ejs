@@ -6,9 +6,6 @@
 <body>
    <div class="container-center">
       <div class="box">
-         <form action="/Answer">
-             <input type="submit" value="Answer Page!">
-         </form>
          <h1 class="container-center steel">Create a question</h1>
          <div class="container steel">
             <form action="/createQuestion" class="container-center steel">
@@ -54,15 +51,15 @@
                         <tbody>
                             <% data.forEach(function (question) {
                             if(question.question != ""){%>
-                            <tr onclick="javascript:document.forms['questForm'].submit();">
+                            <tr onclick="javascript:document.getElementById('<%= question.id %>').checked = true;;">
                                 <!-- In case we want to delete or see questions ever -->
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
-                                <input type="radio" name="id" value="<%= question.id %>">
+                                <td><input type="radio" id="<%= question.id %>" name="id" value="<%= question.id %>"></td>
                                 <td class="td-button"><%= question.question %></td>
                             </tr>
                             <% }}) %>
                             <tr>
-                                <td>
+                                <td colspan="2">
                                     <!-- In case we want to delete or see questions ever -->
                                     <input type="submit" name="see" value="View Question">
                                     <!-- <input type="submit" name="delete" value="Delete Question"> -->
