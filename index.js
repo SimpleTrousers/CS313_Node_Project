@@ -1,3 +1,13 @@
+// A Node.js, express, ejs, mysql app to implement the Stumper Game
+//
+//
+// "forever" module is installed on server
+// To Start Node.js server: forever start index.js
+// To List running processes: forever list
+// To Stop Node.js Server (if you know the id): forever stop [id]
+// To Stop Node.js Server (if you don't know the id): uid=$(forever list | grep index.js | cut -c24-27) && forever stop $uid
+// To Restart a running server: forever restart [id]
+
 const express = require('express')
 const path = require('path')
 var url = require('url')
