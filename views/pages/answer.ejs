@@ -6,61 +6,70 @@
     </head>
     <body>
         <div class="container-center">
-           <table id="table" >
-               <thead>
-                   <tr>
-                       <th>Question</th>
-                       <th>Answer 1</th>
-                       <th>Answer 2</th>
-                       <th>Answer 3</th>
-                       <th>Answer 4</th>
-                   </tr>
-               </thead>
-                <tbody>
-                <% data.forEach(function (question) {
-                    if (question.answer3 == null && question.answer4 == null) {
-                        var answers = [question.answer1, question.answer2];
-                        answers = shuffle(answers); %>
+            <form action="/SubmitAnswer">
+                <table id="table" >
+                        <thead>
+                            <tr>
+                               <th>Question</th>
+                               <th>Answer 1</th>
+                               <th>Answer 2</th>
+                               <th>Answer 3</th>
+                               <th>Answer 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% data.forEach(function (question) {
+                            if (question.answer3 == null && question.answer4 == null) {
+                                var answers = [question.answer1, question.answer2];
+                                answers = shuffle(answers); %>
+                                <tr>
+                                    <td><%= question.question %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[0] %>"><%= answers[0] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[1] %>"><%= answers[1] %></td>
+                                    <input type="hidden" name="id" value="<%= question.id %>">
+                                </tr>
+                            <% }
+                            else if (question.answer3 != null && question.answer4 == null) {
+                                var answers = [question.answer1, question.answer2, question.answer3];
+                                answers = shuffle(answers); %>
+                                <tr>
+                                    <td><%= question.question %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[0] %>"><%= answers[0] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[1] %>"><%= answers[1] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[2] %>"><%= answers[2] %></td>
+                                    <input type="hidden" name="id" value="<%= question.id %>">
+                                </tr>
+                            <% }
+                            else if (question.answer3 == null && question.answer4 != null) {
+                                var answers = [question.answer1, question.answer2, question.answer4];
+                                answers = shuffle(answers); %>
+                                <tr>
+                                    <td><%= question.question %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[0] %>"><%= answers[0] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[1] %>"><%= answers[1] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[2] %>"><%= answers[2] %></td>
+                                    <input type="hidden" name="id" value="<%= question.id %>">
+                                </tr>
+                            <% }
+                            else if (question.answer3 != null && question.answer4 != null) {
+                                var answers = [question.answer1, question.answer2, question.answer3, question.answer4];
+                                answers = shuffle(answers); %>
+                                <tr>
+                                    <td><%= question.question %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[0] %>"><%= answers[0] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[1] %>"><%= answers[1] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[2] %>"><%= answers[2] %></td>
+                                    <td><input type="radio" name="answer" value="<%= answers[3] %>"><%= answers[3] %></td>
+                                    <input type="hidden" name="id" value="<%= question.id %>">
+                                </tr>
+                        <%  }
+                        }) %>
                         <tr>
-                            <td><%= question.question %></td>
-                            <td><%= answers[0] %></td>
-                            <td><%= answers[1] %></td>
+                            <td colspan="4"><input type="submit" value="Submit Answer"></td>
                         </tr>
-                    <% }
-                    else if (question.answer3 != null && question.answer4 == null) {
-                        var answers = [question.answer1, question.answer2, question.answer3];
-                        answers = shuffle(answers); %>
-                        <tr>
-                            <td><%= question.question %></td>
-                            <td><%= answers[0] %></td>
-                            <td><%= answers[1] %></td>
-                            <td><%= answers[2] %></td>
-                        </tr>
-                    <% }
-                    else if (question.answer3 == null && question.answer4 != null) {
-                        var answers = [question.answer1, question.answer2, question.answer4];
-                        answers = shuffle(answers); %>
-                        <tr>
-                            <td><%= question.question %></td>
-                            <td><%= answers[0] %></td>
-                            <td><%= answers[1] %></td>
-                            <td><%= answers[2] %></td>
-                        </tr>
-                    <% }
-                    else if (question.answer3 != null && question.answer4 != null) {
-                        var answers = [question.answer1, question.answer2, question.answer3, question.answer4];
-                        answers = shuffle(answers); %>
-                        <tr>
-                            <td><%= question.question %></td>
-                            <td><%= answers[0] %></td>
-                            <td><%= answers[1] %></td>
-                            <td><%= answers[2] %></td>
-                            <td><%= answers[3] %></td>
-                        </tr>
-                <%  }
-                }) %>
-                </tbody>
-           </table>
+                        </tbody>
+                   </table>
+            </form>
         </div>
 
         <form action="/Stumper">

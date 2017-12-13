@@ -40,6 +40,7 @@ express()
   .get('/createQuestion', (req, res) => createQuestion(req, res))
   .get('/Question', (req, res) => Question(req, res))
   .get('/Answer', (req, res) => res.render('pages/answer'))
+  .get('/SubmitAnswer', (req, res) => confirmAnswer(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 function createQuestion(req, res) {
@@ -102,6 +103,24 @@ function loadQuestions(req, res) {
     if (err) throw err;
     else {
       res.render('pages/stumper', {data: results});
+    }
+  });
+}
+
+function confirmAnswer(req, res) {
+  var requestURL = url.parse(req.url, true);
+
+  var sql = "select * from Questions where id = " + requestURL.query.id;
+
+  con.query(sql, function(err, results, tableInfo) {
+    if (err) throw err;
+    else {
+      if (results[0].answer1 == requestURL.query.answer) {
+        res.render('pages/yes');
+      }
+      else {
+        res.render('pages/no');
+      }
     }
   });
 }
