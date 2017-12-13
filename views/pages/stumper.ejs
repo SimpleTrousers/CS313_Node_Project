@@ -5,40 +5,43 @@
    <% include ../partials/stumper.ejs %>
 </head>
 <body>
-   <div class="container-center">
-      <div class="box">
-         <h1 class="container-center steel">Create a question</h1>
-         <div class="container steel">
-            <form action="/createQuestion" class="container-center steel">
-               <div class="container">
-                  <div class="box">
-                     <h2>Question:</h2>
-                     <input type="text" id="question" name="question" placeholder="Enter question here"/>
-                  </div>
-                  <div class="box">
-                     <h2>Correct Answer:</h2>
-                     <input type="text" id="answer1" name="answer1" placeholder="Correct Answer goes here" />
-                  </div>
-                  <div class="box">
-                     <h2>Required Answer</h2>
-                     <input type="text" id="answer2" name="answer2" placeholder="Other Answer goes here" />
-                  </div>
-                  <div class="box">
-                     <h2>Optional Answer</h2>
-                     <input type="text" id="answer3" name="answer3" placeholder="Optional Answer goes here" value="none"/>
-                  </div>
-                  <div class="box">
-                     <h2>Optional Answer</h2>
-                     <input type="text" id="answer4" name="answer4" placeholder="Optional Answer goes here" value="none"/>
-                  </div>
-                  <div class="box">
-                     <h2>Question Creator</h2>
-                     <input type="text" id="author" name="author" placeholder="Author" />
-                  </div>
-               </div>
-               <input class="box" type="submit" />
-            </form>
-         </div>
+    <div class="container-center">
+        <div class="box">
+            <h1 class="container-center steel">Welcome to the Stumper Game!</h1>
+            <br />
+            <br />
+            <h1 class="container-center steel">Create a question</h1>
+            <div class="container steel">
+                <form action="/createQuestion" class="container-center steel">
+                    <div class="container">
+                        <div class="box">
+                            <h2>Question:</h2>
+                            <input type="text" id="question" name="question" placeholder="Enter question here"/>
+                        </div>
+                        <div class="box">
+                            <h2>Correct Answer:</h2>
+                            <input type="text" id="answer1" name="answer1" placeholder="Correct Answer goes here" />
+                        </div>
+                        <div class="box">
+                            <h2>Required Answer</h2>
+                            <input type="text" id="answer2" name="answer2" placeholder="Other Answer goes here" />
+                        </div>
+                        <div class="box">
+                            <h2>Optional Answer</h2>
+                            <input type="text" id="answer3" name="answer3" placeholder="Optional Answer goes here" value="none"/>
+                        </div>
+                        <div class="box">
+                            <h2>Optional Answer</h2>
+                            <input type="text" id="answer4" name="answer4" placeholder="Optional Answer goes here" value="none"/>
+                        </div>
+                        <div class="box">
+                            <h2>Question Creator</h2>
+                            <input type="text" id="author" name="author" placeholder="Author" />
+                        </div>
+                    </div>
+                    <input class="box" type="submit" />
+                </form>
+            </div>
             <h1 class="container-center steel">Choose a question</h1>
             <br />
             <div class="container-center steel">
