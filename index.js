@@ -53,14 +53,14 @@ function createQuestion(req, res) {
   var auth = requestURL.query.author.toString();
   if(requestURL.query.answer3.toString() == "none")
   {
-     a3 = NULL;
+     a3 = null;
   }else
   {
     a3 = requestURL.query.answer3.toString();
   }
   if(requestURL.query.answer4.toString() == "none")
   {
-     a4 = NULL;
+     a4 = null;
   }else
   {
     a4 = requestURL.query.answer3.toString();
@@ -74,7 +74,7 @@ function createQuestion(req, res) {
     if (err) throw err;
   });
 
-  loadQuestions(req, res);
+  res.render('pages/confirmation');
 };
 
 function Question(req, res) {

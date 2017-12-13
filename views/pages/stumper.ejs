@@ -45,7 +45,8 @@
                     <table id="table">
                         <thead>
                             <tr>
-                                <th>Question</th>
+                                <th colspan="2">Question</th>
+                                <th>Author</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,17 +57,25 @@
                                 <!-- <td><input type="checkbox" name="questionChk" value="<%= question.id %>"></td> -->
                                 <td><input type="radio" id="<%= question.id %>" name="id" value="<%= question.id %>"></td>
                                 <td class="td-button"><%= question.question %></td>
+                                <td class="td-button"><%= question.author %></td>
                             </tr>
                             <% }}) %>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="3">
                                     <!-- In case we want to delete or see questions ever -->
-                                    <input type="submit" name="see" value="View Question">
+                                    <input class="box" type="submit" name="see" value="View Question">
                                     <!-- <input type="submit" name="delete" value="Delete Question"> -->
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </form>
+            </div>
+            <br />
+            <br />
+            <div class="container-center steel">
+                <form action="/">
+                    <input type="submit" value="Logout">
                 </form>
             </div>
       </div>
